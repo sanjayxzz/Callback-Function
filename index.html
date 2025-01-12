@@ -1,0 +1,93 @@
+//1//
+
+const getUserName = (firstName,callback) => {
+  let  fullName = "hello, " + firstName
+callback(fullName)
+}
+const logMessage = (fullName)=> {
+  console.log(fullName)
+}
+getUserName("sanjay",logMessage)
+
+//2//
+
+const calculateAge = (birthYear,callback) => {
+  const currentYear = new Date().getFullYear()
+  const age = currentYear - birthYear
+  callback(age)
+}
+function displayAge(age){
+  console.log(`you are ${age} years old!`)
+}
+calculateAge(2001,displayAge)
+
+//3//
+
+const generateUsername =(firstName,callback) => {
+const  userName = `${firstName}_user`
+callback(userName)
+}
+const displayUserName = (userName) => {
+  console.log(`your userName  is ${userName} `)
+}
+generateUsername("sanjay",displayUserName)
+
+//4//
+
+const checkTemperature = (celcius,callback) => {
+  const fahrenheit = (celcius*9/5)+ 32
+
+callback(fahrenheit)
+}
+const displayTemperatureMessage = (fahrenheit)=>{
+  let message =''
+  if(fahrenheit > 86){
+    message ="hot"
+  }else if (fahrenheit>=50 && fahrenheit<= 86){
+    message = "Moderate"
+  }else{
+    message = "cold"
+  }
+  console.log(`the temperature is: ${message}`)
+}
+checkTemperature(25,displayTemperatureMessage)
+
+//5//
+///////////////////
+const processArray = (numbers,callback) =>{
+  const result = []
+  for(let i=0; i< numbers.length; i++){
+    result.push(callback(numbers[i]))
+  }
+  console.log(result)
+} ///////////////
+
+//another method - Using map instead of for loop
+const processArray = (numbers, callback) => {
+  const result = numbers.map(callback); // Using map instead of for loop for brevity
+  console.log(result);
+};
+
+
+const squareNumber = (num) => num*num;
+
+const numbersArray = [1,2,3,4,5]
+
+processArray(numbersArray, squareNumber)
+
+
+
+
+// 6//
+
+const processArraySum = (numbers, callback) => {
+  const result = numbers.map(callback); // Apply the callback to each element
+  console.log(result);
+};
+
+const doubleNumber = (number) => number * 2 ;
+
+const numbersArray1 = [2,4,6,8,10]
+
+processArraySum(numbersArray1, doubleNumber);
+
